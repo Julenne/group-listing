@@ -1,7 +1,9 @@
 import logging
+import configparser
 from telegram.ext import Updater, CommandHandler
-
-updater = Updater(token='1600211792:AAFdWPT9-Gspu2U_dpsAkjYSyVifhyTVIv4', use_context=True)
+config = configparser.ConfigParser()
+config.read('config.ini')
+updater = Updater(token=config['DEFAULT']['token'], use_context=True)
 dispatcher = updater.dispatcher
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
