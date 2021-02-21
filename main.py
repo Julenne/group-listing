@@ -31,19 +31,18 @@ def newlist(update, context):
         text_newlist = ' '.join(context.args).upper()
         text_sent = context.bot.send_message(chat_id=update.effective_chat.id, 
                 text="Nome da lista: " + text_newlist)
+        
 newlist_handler = CommandHandler('newlist', newlist)
 dispatcher.add_handler(newlist_handler)
 
-def list(array):
-        for item in array:
-                return print(item)
 
 def listing(update, context):
         text_listing = ' '.join(context.args)
         array.append(text_listing)    
         context.bot.edit_message_text(chat_id=update.effective_chat.id, 
                 message_id=text_sent.message_id,
-                text=text_sent.text + "\n" + "\n".join(array))
+                text=text_sent.text + "\n" + '\n'.join(array))
+        context.bot.delete_message(chat_id=update.effective_chat.id, message_id = update.message.message_id)
     #context.bot.send_message(chat_id=update.effective_chat.id, text=text_newlist + "\n" + str(array))
 listing_handler = CommandHandler('listing', listing)
 dispatcher.add_handler(listing_handler)
