@@ -20,7 +20,7 @@ def start(update, context):
         + "\n Este bot cria uma lista com o que os participantes do grupo adicionarem nela."
         + "\n Para começar, adicione este bot à um grupo. Para utilizar:"
         + "\n /newlist - Para criar uma nova lista "
-        + "\n /listing - Para adicionar um elemento à lista")
+        + "\n /add - Para adicionar um elemento à lista")
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
@@ -44,7 +44,7 @@ def listing(update, context):
                 text=text_sent.text + "\n" + '\n'.join(array))
         context.bot.delete_message(chat_id=update.effective_chat.id, message_id = update.message.message_id)
     #context.bot.send_message(chat_id=update.effective_chat.id, text=text_newlist + "\n" + str(array))
-listing_handler = CommandHandler('listing', listing)
+listing_handler = CommandHandler('add', listing)
 dispatcher.add_handler(listing_handler)
 
 
