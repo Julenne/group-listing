@@ -7,7 +7,7 @@ text_newlist = ""
 text_sent = ""
 array = []
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('config.ini')                          "criar um arquivo config.ini contando o token"
 updater = Updater(token=config['DEFAULT']['token'], use_context=True)
 dispatcher = updater.dispatcher
 
